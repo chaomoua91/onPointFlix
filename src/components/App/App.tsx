@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import { tmdbPopularUrl } from './constants';
-import axios from 'axios';
-import { Movie } from './types';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { tmdbPopularUrl } from "../../constants";
+import axios from "axios";
+import { Movie } from "../../types";
 
 function App() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -17,11 +17,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       {movieList.map((movie) => (
-        <h1 className="text-3xl font-bold underline">{movie.title}</h1>
+        <h1 key={movie.id} className="text-3xl font-bold underline">
+          {movie.title}
+        </h1>
       ))}
-    </>
+    </div>
   );
 }
 
