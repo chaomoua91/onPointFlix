@@ -3,6 +3,24 @@ import { useEffect, useState } from "react";
 import { tmdbPopularUrl } from "../../constants";
 import axios from "axios";
 import { Movie } from "../../types";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 
 export default function Home() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -17,17 +35,31 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-wrap justify-center gap-4">
       {movieList.map((movie) => (
-        <h1
+        <Card
+          className="w-[350px]"
           key={movie.id}
-          className="text-3xl font-bold underline"
           onClick={() => console.log(movie)}
         >
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-          {movie.title}
-        </h1>
+          <CardHeader>
+            <CardTitle>{movie.title}</CardTitle>
+            {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
+          </CardHeader>
+          <CardContent>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              className="w-48"
+            />
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline">Cancel</Button>
+            <Button>Deploy</Button>
+          </CardFooter>
+        </Card>
       ))}
     </div>
   );
+  
 }
