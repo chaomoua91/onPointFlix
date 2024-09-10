@@ -1,10 +1,11 @@
 // import { Button } from "@/components/ui/button";
+import "./Filter.css"
 
 export default function Filter() {
   return (
     <>
-      <div>
-        <h1>Hello from Filter</h1>
+      <div className="Filter">
+        <h1 className="FilterTitle">Browse Flix</h1>
       </div>
     </>
   );
