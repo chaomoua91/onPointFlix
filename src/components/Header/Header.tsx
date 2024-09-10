@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <>
       <div>
-        <h1>Testing in Header</h1>
+        <h1>ONPOINTFLIX</h1>
       </div>
     </>
   );
