@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding-left: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #020617;
+    border-bottom: 0.5px solid grey;
+
+  }
+
+  .SignInButton{
+    margin-right: 40px;
+  }
