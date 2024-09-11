@@ -1,5 +1,4 @@
-div {
-    /* background: linear-gradient(to bottom, #020617, #334155); */
+.main {
     background-image: linear-gradient(to bottom, #020617, #121825, #1d2534, #283344, #334155);
   }
   

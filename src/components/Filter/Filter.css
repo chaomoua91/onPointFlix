@@ -1,12 +1,26 @@
 .Filter {
-  background: #020617;
+  margin-right: 280px;
+  border-right: 0.5px solid grey;
 }
+
 .FilterTitle {
   color: white;
   font-size: 26px;
   padding: 10px;
   padding-left: 40px;
   font-weight: bold;
-  border-right: 0.5px solid grey;
-  margin-right: 280px;
+}
+
+.filter-card {
+  margin-left: 40px;
+  margin-right: 315px;
+  margin-bottom: 40px;
+  margin-top: 5px;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }
