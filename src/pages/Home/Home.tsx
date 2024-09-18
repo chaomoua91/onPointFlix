@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { tmdbPopularUrl } from "../../constants";
 import axios from "axios";
 import { Movie } from "../../types";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import "./Home.css";
@@ -18,6 +19,11 @@ import "./Home.css";
 
 export default function Home() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
+  const navigate = useNavigate();
+
+  const onMovieClick = (movie: Movie) => {
+    navigate(`/info/${movie.id}`);
+  };
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
@@ -31,17 +37,19 @@ export default function Home() {
   return (
     <div className="flex-container">
       {movieList.map((movie) => (
-        <Link to="/info" key={movie.id}>
-          <Card className="movie-card" onClick={() => console.log(movie)}>
-            <CardContent style={{ padding: "0px" }} className="card-content">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="movie-poster"
-              />
-            </CardContent>
-          </Card>
-        </Link>
+        <Card
+          className="movie-card"
+          key={movie.id}
+          onClick={() => onMovieClick(movie)}
+        >
+          <CardContent style={{ padding: "0px" }} className="card-content">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              className="movie-poster"
+            />
+          </CardContent>
+        </Card>
       ))}
     </div>
   );
