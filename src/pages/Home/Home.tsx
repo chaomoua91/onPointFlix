@@ -4,7 +4,6 @@ import axios from "axios";
 import { Movie } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "react-router-dom";
 import "./Home.css";
 // import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";

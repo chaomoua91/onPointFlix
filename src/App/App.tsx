@@ -16,7 +16,7 @@ export default function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="info" element={<InfoPage />} />
+        <Route path="info/:id" element={<InfoPage />} />
       </Route>
     )
   );
