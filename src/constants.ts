@@ -6,3 +6,4 @@ export const tmdbApiToken =
 export const tmdbPopularUrl = "/movie/popular";
 export const tmdbMovieDetailsUrl = "/movie/{movie_id}";
 export const tmdbMovieCreditsUrl = "/movie/{movie_id}/credits";
+export const tmdbMovieTrailerUrl = "/movie/{movie_id}/videos";

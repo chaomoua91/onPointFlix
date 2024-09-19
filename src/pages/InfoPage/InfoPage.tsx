@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { tmdbMovieDetailsUrl, tmdbMovieCreditsUrl } from "@/constants";
+import {
+  tmdbMovieDetailsUrl,
+  tmdbMovieCreditsUrl,
+  tmdbMovieTrailerUrl,
+} from "@/constants";
 import axios from "axios";
 import { Movie } from "@/types";
 import { useParams } from "react-router-dom";
@@ -9,31 +13,37 @@ import "./InfoPage.css";
 // import { Button } from "@/components/ui/button";
 
 export default function InfoPage() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<Movie>();
-
   const [credits, setCredits] = useState<any>();
+  const [trailer, setTrailer] = useState<string>("");
 
   useEffect(() => {
-    const fetchMovieCredits = async () => {
-      const result = await axios.get(
-        tmdbMovieCreditsUrl.replace("{movie_id}", id!)
-      );
-      console.log(result.data);
-      setCredits(result.data);
-    };
-    fetchMovieCredits();
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        const [movieDetails, movieCredits, movieTrailer] = await Promise.all([
+          axios.get(tmdbMovieDetailsUrl.replace("{movie_id}", id!)),
+          axios.get(tmdbMovieCreditsUrl.replace("{movie_id}", id!)),
+          axios.get(tmdbMovieTrailerUrl.replace("{movie_id}", id!)),
+        ]);
 
-  useEffect(() => {
-    const fetchMovieDetails = async () => {
-      const result = await axios.get(
-        tmdbMovieDetailsUrl.replace("{movie_id}", id!)
-      );
-      console.log(result.data);
-      setMovie(result.data);
+        console.log("Movie Details:", movieDetails.data);
+        console.log("Movie Credits:", movieCredits.data);
+        console.log("Movie Trailer:", movieTrailer.data);
+
+        setMovie(movieDetails.data);
+        setCredits(movieCredits.data);
+        setTrailer(
+          movieTrailer.data.results.find(
+            (video: any) => video.type === "Trailer"
+          )?.key
+        );
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
     };
-    fetchMovieDetails();
+
+    fetchData();
   }, [id]);
 
   return (
@@ -70,6 +80,19 @@ export default function InfoPage() {
                   <p>
                     Genres: {movie.genres.map((genre) => genre.name).join(", ")}
                   </p>
+                </div>
+                <div>
+                  {trailer && (
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${trailer}`}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
             </CardContent>
