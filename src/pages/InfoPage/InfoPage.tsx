@@ -27,14 +27,23 @@ export default function InfoPage() {
       <div>
         {movie && (
           <Card>
-            <CardContent className="text-white">
-              <h1>{movie.title}</h1>
-              <p>{movie.overview}</p>
-              <p>Release Date: {movie.release_date}</p>
+            <CardContent className="text-white flex">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
+                className=" w-500px mr-12 ml-6 mt-12"
               />
+              <div className="flex flex-col justify-center">
+                <h2 className="movieTitle">{movie.title}</h2>
+                <p>{new Date(movie.release_date).getFullYear()}</p>
+                <p> ⭐ {movie.vote_average.toFixed(1)} </p>
+                <p>{movie.overview}</p>
+                <p>Director: {movie.director}</p>
+                <p>Cast:</p>
+                <p>
+                  Genres: {movie.genres.map((genre) => genre.name).join(", ")}
+                </p>
+              </div>
             </CardContent>
           </Card>
         )}

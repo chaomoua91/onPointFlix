@@ -1,5 +1,9 @@
 /* InfoPage.css */
 
-body {
-  color: white;
+.movieTitle {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-align: left;
+  margin-top: 0;
 }
