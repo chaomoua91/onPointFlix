@@ -5,5 +5,14 @@
   font-weight: bold;
   margin-bottom: 0.5em;
   text-align: left;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.movieInfo {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }

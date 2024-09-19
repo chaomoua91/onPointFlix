@@ -41,7 +41,7 @@ export default function InfoPage() {
       <div>
         {movie && (
           <Card>
-            <CardContent className="text-white flex">
+            <CardContent className="text-white flex font-Poppins">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
@@ -49,26 +49,28 @@ export default function InfoPage() {
               />
               <div className="flex flex-col justify-center">
                 <h2 className="movieTitle">{movie.title}</h2>
-                <p>{new Date(movie.release_date).getFullYear()}</p>
-                <p> ⭐ {movie.vote_average.toFixed(1)} </p>
-                <p>{movie.overview}</p>
-                <p>
-                  Director:{" "}
-                  {
-                    credits?.crew?.find((member) => member.job === "Director")
-                      ?.name
-                  }
-                </p>
-                <p>
-                  Cast:{" "}
-                  {credits?.cast
-                    ?.slice(0, 5)
-                    .map((member) => member.name)
-                    .join(", ")}
-                </p>
-                <p>
-                  Genres: {movie.genres.map((genre) => genre.name).join(", ")}
-                </p>
+                <div className="movieInfo">
+                  <p>{new Date(movie.release_date).getFullYear()}</p>
+                  <p> ⭐ {movie.vote_average.toFixed(1)} </p>
+                  <p>{movie.overview}</p>
+                  <p>
+                    Director:{" "}
+                    {
+                      credits?.crew?.find((member) => member.job === "Director")
+                        ?.name
+                    }
+                  </p>
+                  <p>
+                    Cast:{" "}
+                    {credits?.cast
+                      ?.slice(0, 5)
+                      .map((member) => member.name)
+                      .join(", ")}
+                  </p>
+                  <p>
+                    Genres: {movie.genres.map((genre) => genre.name).join(", ")}
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
