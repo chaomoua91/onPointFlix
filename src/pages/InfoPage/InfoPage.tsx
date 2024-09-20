@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import "./InfoPage.css";
 
-// import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function InfoPage() {
   const { id } = useParams<{ id: string }>();
@@ -57,8 +57,14 @@ export default function InfoPage() {
                 alt={movie.title}
                 className=" w-500px mr-12 ml-6 mt-12"
               />
-              <div className="flex flex-col justify-center">
-                <h2 className="movieTitle">{movie.title}</h2>
+              <div className="flex flex-col justify-center ">
+                <div className="flex items-center mb-4 justify-start">
+                  <h2 className="movieTitle mr-40">{movie.title}</h2>
+                  <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-3">
+                    Add to Watchlist
+                  </Button>
+                </div>
+
                 <div className="movieInfo">
                   <p>{new Date(movie.release_date).getFullYear()}</p>
                   <p> ⭐ {movie.vote_average.toFixed(1)} </p>
@@ -82,6 +88,7 @@ export default function InfoPage() {
                   </p>
                 </div>
                 <div>
+                  <p className="trailer">Trailer</p>
                   {trailer && (
                     <iframe
                       width="560"
