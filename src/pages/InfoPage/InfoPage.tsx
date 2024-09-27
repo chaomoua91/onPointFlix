@@ -12,6 +12,11 @@ import "./InfoPage.css";
 
 import { Button } from "@/components/ui/button";
 
+interface Credits {
+  cast: { name: string }[];
+  crew: { job: string; name: string }[];
+}
+
 export default function InfoPage() {
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<Movie>();
@@ -32,10 +37,10 @@ export default function InfoPage() {
         console.log("Movie Trailer:", movieTrailer.data);
 
         setMovie(movieDetails.data);
-        setCredits(movieCredits.data);
+        setCredits(movieCredits.data as Credits);
         setTrailer(
           movieTrailer.data.results.find(
-            (video: any) => video.type === "Trailer"
+            (video: { type: string; key: string }) => video.type === "Trailer"
           )?.key
         );
       } catch (error) {
@@ -48,7 +53,7 @@ export default function InfoPage() {
 
   return (
     <>
-      <div>
+      <div className="movieDisplay">
         {movie && (
           <Card>
             <CardContent className="text-white flex font-Poppins">
@@ -58,10 +63,10 @@ export default function InfoPage() {
                 className=" w-500px mr-12 ml-6 mt-12"
               />
               <div className="flex flex-col justify-center ">
-                <div className="flex items-center mb-4 justify-start">
-                  <h2 className="movieTitle mr-40">{movie.title}</h2>
-                  <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-3">
-                    Add to Watchlist
+                <div className="flex space-x-40 items-center mb-4 justify-start space between ">
+                  <h2 className="movieTitle mr-4">{movie.title}</h2>
+                  <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 ">
+                    Add To Watchlist
                   </Button>
                 </div>
 
@@ -72,19 +77,24 @@ export default function InfoPage() {
                   <p>
                     Director:{" "}
                     {
-                      credits?.crew?.find((member) => member.job === "Director")
-                        ?.name
+                      credits?.crew?.find(
+                        (member: { job: string; name: string }) =>
+                          member.job === "Director"
+                      )?.name
                     }
                   </p>
                   <p>
                     Cast:{" "}
                     {credits?.cast
                       ?.slice(0, 5)
-                      .map((member) => member.name)
+                      .map((member: { name: string }) => member.name)
                       .join(", ")}
                   </p>
                   <p>
-                    Genres: {movie.genres.map((genre) => genre.name).join(", ")}
+                    Genres:{" "}
+                    {movie.genres
+                      .map((genre: { id: number; name: string }) => genre.name)
+                      .join(", ")}
                   </p>
                 </div>
                 <div>

@@ -1,10 +1,15 @@
 /* InfoPage.css */
 
+.movieDisplay {
+  margin-right: 280px;
+}
+
 .movieTitle {
   font-size: 2em;
   font-weight: bold;
   margin-top: 1em;
   margin-bottom: 0.5em;
+  
   text-align: left;
   display: flex;
   flex-direction: column;
