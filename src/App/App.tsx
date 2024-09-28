@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "../components/Header/Header.tsx";
 import Home from "../pages/Home/Home.tsx";
 import InfoPage from "../pages/InfoPage/InfoPage.tsx";
-import Filter from "@/components/Filter/Filter.tsx";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -34,7 +33,6 @@ const Root = () => {
       <div>
         <div>
           <Header />
-          <Filter />
         </div>
         <div>
           <Outlet />
