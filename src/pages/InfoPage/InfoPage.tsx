@@ -63,13 +63,12 @@ export default function InfoPage() {
                 className=" w-500px mr-12 ml-6 mt-12"
               />
               <div className="flex flex-col justify-center ">
-                <div className="flex space-x-40 items-center mb-4 justify-start space between ">
+                <div className="flex items-center mb-4 justify-between ">
                   <h2 className="movieTitle mr-4">{movie.title}</h2>
-                  <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 ">
+                  <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 mr-4">
                     Add To Watchlist
                   </Button>
                 </div>
-
                 <div className="movieInfo">
                   <p>{new Date(movie.release_date).getFullYear()}</p>
                   <p> ⭐ {movie.vote_average.toFixed(1)} </p>
@@ -97,8 +96,8 @@ export default function InfoPage() {
                       .join(", ")}
                   </p>
                 </div>
-                <div>
-                  <p className="trailer">Trailer</p>
+                <div className="trailer">
+                  <h2 className="trailer-title">Trailer</h2>
                   {trailer && (
                     <iframe
                       width="560"
