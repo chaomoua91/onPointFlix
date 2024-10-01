@@ -20,7 +20,7 @@ interface Credits {
 export default function InfoPage() {
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<Movie>();
-  const [credits, setCredits] = useState<string>("");
+  const [credits, setCredits] = useState<Credits | null>(null);
   const [trailer, setTrailer] = useState<string>("");
 
   useEffect(() => {
@@ -56,9 +56,9 @@ export default function InfoPage() {
       <Card className="card">
         <CardContent className="info-content">
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title}
-            className=" w-500px mr-12 ml-6 mt-12"
+            src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+            alt={movie?.title}
+            className=" w-auto mr-12 ml-6"
           />
           <div className="movie-info">
             <div className="movie-title">
@@ -68,11 +68,15 @@ export default function InfoPage() {
               </Button>
             </div>
             <div className="movie-content">
-              <p>{new Date(movie.release_date).getFullYear()}</p>
-              <p> ⭐ {movie.vote_average.toFixed(1)} </p>
-              <p>{movie.overview}</p>
               <p>
-                Director:{" "}
+                {movie?.release_date
+                  ? new Date(movie.release_date).getFullYear()
+                  : "N/A"}
+              </p>
+              <p> ⭐ {movie?.vote_average.toFixed(1)} </p>
+              <p>{movie?.overview}</p>
+              <p>
+                <span>Director:</span>{" "}
                 {
                   credits?.crew?.find(
                     (member: { job: string; name: string }) =>
@@ -81,15 +85,16 @@ export default function InfoPage() {
                 }
               </p>
               <p>
-                Cast:{" "}
+                <span>Cast:</span>{" "}
                 {credits?.cast
                   ?.slice(0, 5)
                   .map((member: { name: string }) => member.name)
                   .join(", ")}
               </p>
               <p>
+                <span>Genres:</span>
                 Genres:{" "}
-                {movie.genres
+                {movie?.genres
                   .map((genre: { id: number; name: string }) => genre.name)
                   .join(", ")}
               </p>
