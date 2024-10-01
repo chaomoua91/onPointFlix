@@ -1,1 +1,44 @@
 /* InfoPage.css */
+.card {
+  background: linear-gradient(
+    to bottom,
+    #020617,
+    #121825,
+    #1d2534,
+    #283344,
+    #334155
+  );
+}
+
+.info-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 20px;
+  color: white;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+}
