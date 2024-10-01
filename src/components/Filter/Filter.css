@@ -1,5 +1,12 @@
 .Filter {
-  background: #020617;
+  /* background: linear-gradient(
+    to bottom,
+    #020617,
+    #121825,
+    #1d2534,
+    #283344,
+    #334155
+  ); */
 }
 .FilterTitle {
   color: white;

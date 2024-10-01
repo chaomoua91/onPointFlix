@@ -21,7 +21,7 @@ export default function App() {
   );
 
   return (
-    <div>
+    <div className="font-poppins">
       <RouterProvider router={router} />
     </div>
   );
@@ -34,7 +34,7 @@ const Root = () => {
         <div>
           <Header />
         </div>
-        <div>
+        <div className="content">
           <Outlet />
         </div>
       </div>
