@@ -7,11 +7,8 @@
   gap: 20px;
   margin-right: 280px;
   overflow: auto;
-}
-
-.card {
-  background: linear-gradient(to bottom, #020617, #334155);
-  border: none;
+  width: 70vw;
+  height: calc(100vh - 97px);
 }
 
 .info-content {
@@ -69,6 +66,8 @@ span {
   .info-container {
     margin-right: 0;
     padding: 10px;
+    width: 100vw;
+    height: calc(100vh - 97px);
   }
 
   .info-content {
