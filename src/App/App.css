@@ -1,5 +1,11 @@
-div {
-    /* background: linear-gradient(to bottom, #020617, #334155); */
-    background-image: linear-gradient(to bottom, #020617, #121825, #1d2534, #283344, #334155);
-  }
-  
+.content {
+  height: calc(100vh - 97px);
+  background: linear-gradient(
+    to bottom,
+    #020617,
+    #121825,
+    #1d2534,
+    #283344,
+    #334155
+  );
+}

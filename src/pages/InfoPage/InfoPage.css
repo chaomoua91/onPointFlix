@@ -1,0 +1,89 @@
+/* InfoPage.css */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-right: 280px;
+  overflow: auto;
+  width: 70vw;
+  height: calc(100vh - 97px);
+}
+
+.info-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 20px;
+  color: white;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  font-size: larger;
+}
+
+.trailer-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.trailer {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+  gap: 20px;
+}
+
+span {
+  color: #94a3b8;
+}
+
+@media (max-width: 1024px) {
+  .info-container {
+    margin-right: 0;
+    padding: 10px;
+    width: 100vw;
+    height: calc(100vh - 97px);
+  }
+
+  .info-content {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-content {
+    font-size: medium;
+  }
+
+  .trailer {
+    padding-right: 0;
+  }
+}
