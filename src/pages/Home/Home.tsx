@@ -6,16 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import "./Home.css";
 import Filter from "@/components/Filter/Filter";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
 
 export default function Home() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -28,7 +18,6 @@ export default function Home() {
   useEffect(() => {
     const fetchPopularMovies = async () => {
       const result = await axios.get(tmdbPopularUrl);
-      console.log(result.data);
       setMovieList(result.data.results);
     };
     fetchPopularMovies();

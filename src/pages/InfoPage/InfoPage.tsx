@@ -32,10 +32,6 @@ export default function InfoPage() {
           axios.get(tmdbMovieTrailerUrl.replace("{movie_id}", id!)),
         ]);
 
-        console.log("Movie Details:", movieDetails.data);
-        console.log("Movie Credits:", movieCredits.data);
-        console.log("Movie Trailer:", movieTrailer.data);
-
         setMovie(movieDetails.data);
         setCredits(movieCredits.data as Credits);
         setTrailer(
