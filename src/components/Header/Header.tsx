@@ -32,9 +32,9 @@ export default function Header() {
               style={{ width: "425px", height: "188px" }}
             >
               <div className="flex flex-col gap-3">
-                <h3 className="font-weight: 600">Sign In</h3>
+                <h3 className="signInTitle">Sign In</h3>
                 <form>
-                  <div>
+                  <div className="dialog">
                     <p>
                       Sign in to your account here to save your watch list or
                       create a new account.
