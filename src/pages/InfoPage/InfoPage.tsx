@@ -87,8 +87,7 @@ export default function InfoPage() {
                 .join(", ")}
             </p>
             <p>
-              <span>Genres:</span>
-              Genres:{" "}
+              <span>Genres:</span>{" "}
               {movie?.genres
                 .map((genre: { id: number; name: string }) => genre.name)
                 .join(", ")}
