@@ -10,5 +10,18 @@
 }
 
 .SignInButton {
-  margin-right: 40px;
+  margin-right: 44px;
+}
+
+.signInTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #64748b;
 }
